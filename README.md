@@ -165,8 +165,11 @@ QuillUnlocker/
 QuillUnlocker uses **API interception** to enable premium features:
 
 1. **Account Override**: Intercepts `/get-account-details` API → Sets `premium = true`
-2. **Tracking Block**: Blocks `/api/tracking` requests → Improves privacy
-3. **Mode Enable**: Enables all writing modes (Standard, Fluency, Formal, Simple, Creative, Expand, Shorten)
+2. **Cookie Mocking**: Sets premium cookies for client-side checks
+3. **Tracking Block**: Blocks `/api/tracking` requests → Improves privacy
+4. **Mode Enable**: Unlocks UI for all writing modes
+
+> **Note**: Some advanced modes (Formal, Creative, Expand, Shorten) may require server-side verification which cannot be bypassed without a valid token. However, unlimited words, standard premium features, and UI unlocks are fully functional.
 
 ### Research-Based Implementation
 

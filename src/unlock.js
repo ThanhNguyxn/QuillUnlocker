@@ -1,9 +1,5 @@
 /*
  * QuillUnlocker - Advanced Unlock Logic
- * Based on research from:
- * - blueagler/QuillBot-Helper (proxy rules pattern)
- * - Ragug/quillbot-premium-for-free 
- * - GreasyFork userscripts
  * 
  * Features:
  * - API interception for premium unlock
@@ -75,6 +71,20 @@
     }
 
     /**
+     * Mock premium cookies
+     */
+    function mockCookies() {
+        try {
+            const date = new Date();
+            date.setTime(date.getTime() + (365 * 24 * 60 * 60 * 1000));
+            const expires = "; expires=" + date.toUTCString();
+
+            document.cookie = "is_premium=true" + expires + "; path=/; domain=.quillbot.com";
+            document.cookie = "premium_status=active" + expires + "; path=/; domain=.quillbot.com";
+        } catch (e) { }
+    }
+
+    /**
      * Modify account details to enable premium
      */
     function modifyAccountDetails(responseText) {
@@ -96,6 +106,7 @@
                 result.data.user.isPremium = true;
             }
 
+            mockCookies(); // Ensure cookies are set when account details are fetched
             return JSON.stringify(result);
         } catch (e) {
             return responseText;
