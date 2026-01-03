@@ -184,13 +184,6 @@ QuillUnlocker uses **API interception** to enable premium features:
 
 > **Note**: Some advanced modes (Formal, Creative, Expand, Shorten) may require server-side verification which cannot be bypassed without a valid token. However, unlimited words, standard premium features, and UI unlocks are fully functional.
 
-### Research-Based Implementation
-
-This extension is based on research from:
-- [blueagler/QuillBot-Helper](https://github.com/blueagler/QuillBot-Helper) - XHR proxy pattern
-- [Ragug/quillbot-premium-for-free](https://github.com/Ragug/quillbot-premium-for-free) - Simple injection
-- GreasyFork userscripts - API endpoint patterns
-
 ---
 
 ## 🤝 Contributing
