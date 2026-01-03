@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![QuillUnlocker Logo](icons/icon128.png)
+<img src="logo.png" alt="QuillUnlocker Logo" width="150">
 
 **Ultimate QuillBot Premium Unlocker - All features, no limits**
 
