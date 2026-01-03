@@ -215,12 +215,20 @@ async function updateStats(words = 0) {
 
 // Show notification
 function showNotification(title, message) {
-    chrome.notifications.create({
-        type: 'basic',
-        iconUrl: 'icons/icon128.png',
-        title,
-        message
-    });
+    try {
+        chrome.notifications.create({
+            type: 'basic',
+            iconUrl: chrome.runtime.getURL('icons/icon128.png'),
+            title,
+            message
+        }, (notificationId) => {
+            if (chrome.runtime.lastError) {
+                console.warn('[QuillUnlocker] Notification error:', chrome.runtime.lastError.message);
+            }
+        });
+    } catch (e) {
+        console.log('[QuillUnlocker]', title, '-', message);
+    }
 }
 
 console.log('[QuillUnlocker] Background service worker initialized');
