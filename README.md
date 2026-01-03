@@ -79,11 +79,24 @@
 
 5. **Done!** Visit [quillbot.com](https://quillbot.com) and enjoy premium features
 
-### Method 2: From Release
+### Method 2: From Release (Easier)
 
-1. Go to [Releases](https://github.com/ThanhNguyxn/QuillUnlocker/releases)
-2. Download the latest `.zip` file
-3. Extract and follow steps 2-5 above
+1. **Download** the latest release:
+   - Go to [Releases](https://github.com/ThanhNguyxn/QuillUnlocker/releases)
+   - Download the `QuillUnlocker-v1.0.0.zip` file
+   - Extract the zip file to a folder named `QuillUnlocker`
+
+2. **Open Chrome Extensions**:
+   - Type `chrome://extensions/` in your address bar
+   - Or go to Menu (⋮) → Extensions → Manage Extensions
+
+3. **Enable Developer Mode**:
+   - Toggle the switch in the top right corner of the Extensions page
+
+4. **Install**:
+   - Click **Load unpacked** button
+   - Select the extracted `QuillUnlocker` folder
+   - **Done!** The extension is now active
 
 ---
 
