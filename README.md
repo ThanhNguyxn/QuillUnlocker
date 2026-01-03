@@ -13,6 +13,9 @@
 [![Version](https://img.shields.io/badge/version-1.0.0-00d4aa?style=flat-square)](manifest.json)
 [![Chrome](https://img.shields.io/badge/Chrome-Extension-4285F4?logo=google-chrome&logoColor=white&style=flat-square)](https://developer.chrome.com/docs/extensions/)
 
+<br>
+<img src="preview.png" alt="QuillUnlocker Preview" width="800">
+
 </div>
 
 ---
