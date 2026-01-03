@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuillUnlocker Settings</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            font-size: 48px;
+        }
+
+        h1 {
+            font-size: 28px;
+            background: linear-gradient(135deg, #00d4aa 0%, #00ff88 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .setting-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .setting-row:last-child {
+            border-bottom: none;
+        }
+
+        .setting-info h3 {
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .setting-info p {
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* Toggle Switch */
+        .toggle {
+            position: relative;
+            width: 50px;
+            height: 26px;
+        }
+
+        .toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #333;
+            border-radius: 26px;
+            transition: 0.3s;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 3px;
+            bottom: 3px;
+            background: white;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+
+        .toggle input:checked+.toggle-slider {
+            background: linear-gradient(135deg, #00d4aa 0%, #00a885 100%);
+        }
+
+        .toggle input:checked+.toggle-slider:before {
+            transform: translateX(24px);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .stat-card {
+            background: rgba(0, 212, 170, 0.1);
+            border: 1px solid rgba(0, 212, 170, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: #00d4aa;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #888;
+            margin-top: 8px;
+        }
+
+        /* Shortcuts */
+        .shortcut-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+        }
+
+        .shortcut-key {
+            display: flex;
+            gap: 6px;
+        }
+
+        .key {
+            background: #333;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-family: monospace;
+            border: 1px solid #444;
+        }
+
+        /* Buttons */
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00d4aa 0%, #00a885 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 212, 170, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-danger {
+            background: rgba(244, 67, 54, 0.2);
+            color: #f44336;
+            border: 1px solid rgba(244, 67, 54, 0.3);
+        }
+
+        .btn-danger:hover {
+            background: rgba(244, 67, 54, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        footer a {
+            color: #00d4aa;
+            text-decoration: none;
+        }
+
+        .sponsor-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 12px;
+        }
+
+        .sponsor-links a {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .sponsor-links a:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .saved-toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #00d4aa;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .saved-toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">✨</div>
+            <div>
+                <h1>QuillUnlocker Settings</h1>
+                <p class="subtitle">Configure your premium experience</p>
+            </div>
+        </header>
+
+        <!-- Statistics -->
+        <section class="section">
+            <h2 class="section-title">📊 Usage Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="totalWords">0</div>
+                    <div class="stat-label">Total Words</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="totalParaphrases">0</div>
+                    <div class="stat-label">Total Paraphrases</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="todayWords">0</div>
+                    <div class="stat-label">Today's Words</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="todayParaphrases">0</div>
+                    <div class="stat-label">Today's Paraphrases</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- General Settings -->
+        <section class="section">
+            <h2 class="section-title">⚙️ General Settings</h2>
+
+            <div class="setting-row">
+                <div class="setting-info">
+                    <h3>Enable Extension</h3>
+                    <p>Turn QuillUnlocker on or off</p>
+                </div>
+                <label class="toggle">
+                    <input type="checkbox" id="enabled" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+
+            <div class="setting-row">
+                <div class="setting-info">
+                    <h3>Show Badge</h3>
+                    <p>Display QuillUnlocker badge on QuillBot pages</p>
+                </div>
+                <label class="toggle">
+                    <input type="checkbox" id="showBadge" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+
+            <div class="setting-row">
+                <div class="setting-info">
+                    <h3>Show Notifications</h3>
+                    <p>Display notifications for extension events</p>
+                </div>
+                <label class="toggle">
+                    <input type="checkbox" id="showNotifications" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+
+            <div class="setting-row">
+                <div class="setting-info">
+                    <h3>Track Statistics</h3>
+                    <p>Keep track of your paraphrasing usage</p>
+                </div>
+                <label class="toggle">
+                    <input type="checkbox" id="trackStats" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+
+            <div class="setting-row">
+                <div class="setting-info">
+                    <h3>Floating Toolbar</h3>
+                    <p>Show quick access toolbar on QuillBot</p>
+                </div>
+                <label class="toggle">
+                    <input type="checkbox" id="floatingToolbar" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+        </section>
+
+        <!-- Keyboard Shortcuts -->
+        <section class="section">
+            <h2 class="section-title">⌨️ Keyboard Shortcuts</h2>
+
+            <div class="shortcut-row">
+                <span>Open popup</span>
+                <div class="shortcut-key">
+                    <span class="key">Alt</span>
+                    <span class="key">Q</span>
+                </div>
+            </div>
+
+            <div class="shortcut-row">
+                <span>Quick paraphrase</span>
+                <div class="shortcut-key">
+                    <span class="key">Ctrl</span>
+                    <span class="key">Shift</span>
+                    <span class="key">P</span>
+                </div>
+            </div>
+
+            <div class="shortcut-row">
+                <span>Toggle extension</span>
+                <div class="shortcut-key">
+                    <span class="key">Ctrl</span>
+                    <span class="key">Shift</span>
+                    <span class="key">Q</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Actions -->
+        <section class="section">
+            <h2 class="section-title">🔧 Actions</h2>
+            <div class="btn-group">
+                <button class="btn btn-primary" id="saveBtn">💾 Save Settings</button>
+                <button class="btn btn-secondary" id="resetBtn">🔄 Reset to Default</button>
+                <button class="btn btn-danger" id="clearStatsBtn">🗑️ Clear Statistics</button>
+            </div>
+        </section>
+
+        <footer>
+            <p>QuillUnlocker v1.0.0 • Made with ❤️ by <a href="https://github.com/ThanhNguyxn"
+                    target="_blank">ThanhNguyxn</a></p>
+            <div class="sponsor-links">
+                <a href="https://github.com/sponsors/ThanhNguyxn" target="_blank">💖 GitHub Sponsors</a>
+                <a href="https://buymeacoffee.com/thanhnguyxn" target="_blank">☕ Buy Me a Coffee</a>
+            </div>
+        </footer>
+    </div>
+
+    <div class="saved-toast" id="toast">✅ Settings saved!</div>
+
+    <script src="options.js"></script>
+</body>
+
+</html>

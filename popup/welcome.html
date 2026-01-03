@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to QuillUnlocker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            text-align: center;
+            animation: fadeIn 0.6s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #00d4aa 0%, #00ff88 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-size: 18px;
+            color: #888;
+            margin-bottom: 40px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .feature:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(0, 212, 170, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .feature-icon {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .feature-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .feature-desc {
+            font-size: 13px;
+            color: #888;
+            line-height: 1.5;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #00d4aa 0%, #00a885 100%);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-bottom: 24px;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 212, 170, 0.4);
+        }
+
+        .support-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .support-title {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 16px;
+        }
+
+        .support-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .support-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .support-btn.github {
+            background: #24292e;
+            color: #ffffff;
+        }
+
+        .support-btn.coffee {
+            background: linear-gradient(135deg, #ff813f 0%, #ff5f5f 100%);
+            color: #ffffff;
+        }
+
+        .support-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .support-icon {
+            width: 18px;
+            height: 18px;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 12px;
+            color: #555;
+        }
+
+        footer a {
+            color: #00d4aa;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo">✨</div>
+        <h1>QuillUnlocker</h1>
+        <p class="tagline">Premium features unlocked for QuillBot</p>
+
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">📝</div>
+                <div class="feature-title">All Writing Modes</div>
+                <div class="feature-desc">Access Standard, Fluency, Formal, Simple, Creative, Expand, and Shorten modes
+                </div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">♾️</div>
+                <div class="feature-title">Unlimited Words</div>
+                <div class="feature-desc">Remove the 125-word limit and paraphrase as much as you need</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🎚️</div>
+                <div class="feature-title">Synonym Slider</div>
+                <div class="feature-desc">Full 4-level synonym control for perfect word choices</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📊</div>
+                <div class="feature-title">Summarizer</div>
+                <div class="feature-desc">Extended character limits and bullet point formatting</div>
+            </div>
+        </div>
+
+        <a href="https://quillbot.com" target="_blank" class="cta-btn">
+            🚀 Open QuillBot
+        </a>
+
+        <div class="support-section">
+            <p class="support-title">Support the developer ❤️</p>
+            <div class="support-buttons">
+                <a href="https://github.com/sponsors/ThanhNguyxn" target="_blank" class="support-btn github">
+                    <svg class="support-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
+                    GitHub Sponsors
+                </a>
+                <a href="https://buymeacoffee.com/thanhnguyxn" target="_blank" class="support-btn coffee">
+                    ☕ Buy Me a Coffee
+                </a>
+            </div>
+        </div>
+
+        <footer>
+            <p>Made with ❤️ by <a href="https://github.com/ThanhNguyxn">ThanhNguyxn</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>

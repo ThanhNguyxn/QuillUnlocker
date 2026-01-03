@@ -1,0 +1,76 @@
+{
+  "name": "QuillUnlocker",
+  "version": "1.0.0",
+  "description": "Unlock QuillBot Premium features - by ThanhNguyxn",
+  "manifest_version": 3,
+  "author": "ThanhNguyxn",
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "QuillUnlocker",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "src/unlock.js"
+      ],
+      "matches": [
+        "https://quillbot.com/*"
+      ]
+    }
+  ],
+  "content_scripts": [
+    {
+      "js": [
+        "src/inject.js"
+      ],
+      "matches": [
+        "https://quillbot.com/*"
+      ],
+      "all_frames": true,
+      "run_at": "document_start"
+    }
+  ],
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "permissions": [
+    "storage",
+    "contextMenus",
+    "notifications"
+  ],
+  "host_permissions": [
+    "https://quillbot.com/*"
+  ],
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Alt+Q"
+      },
+      "description": "Open QuillUnlocker popup"
+    },
+    "quick-paraphrase": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+P"
+      },
+      "description": "Quick paraphrase selected text"
+    },
+    "toggle-extension": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Q"
+      },
+      "description": "Toggle extension on/off"
+    }
+  },
+  "options_page": "options/options.html"
+}
